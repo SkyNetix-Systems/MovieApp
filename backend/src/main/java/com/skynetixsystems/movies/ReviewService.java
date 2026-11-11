@@ -17,13 +17,22 @@ public class ReviewService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public Review createReview(String reviewBody, String imdbId) {
-        Review review = repository.insert(new Review(reviewBody, LocalDateTime.now(), LocalDateTime.now()));
 
+    public Review createReview(String reviewBody, String imdbId) {
+
+        // Create a new review with timestamps
+        LocalDateTime now = LocalDateTime.now();
+
+        Review review = repository.insert(
+                new Review(reviewBody, now, now)
+        );
+
+        // Add the review ID to the Movie's reviews reference field
         mongoTemplate.update(Movie.class)
-            .matching(Criteria.where("imdbId").is(imdbId))
-                .apply(new Update().push("reviewIds").value(review.getId()))
+                .matching(Criteria.where("imdbId").is(imdbId))
+                .apply(new Update().push("reviews").value(review.getId()))
                 .first();
+
         return review;
     }
 }
