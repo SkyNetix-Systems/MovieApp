@@ -1,4 +1,4 @@
-package dev.farhan.movieist.movies;
+package com.skynetixsystems.movies;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

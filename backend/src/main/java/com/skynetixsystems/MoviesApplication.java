@@ -1,4 +1,4 @@
-package dev.farhan.movieist;
+package com.skynetixsystems;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +7,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class MovieistApplication {
+public class MoviesApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MovieistApplication.class, args);
+		SpringApplication.run(MoviesApplication.class, args);
 	}
 
 	@Bean

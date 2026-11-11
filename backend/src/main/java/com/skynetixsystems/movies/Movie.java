@@ -1,4 +1,4 @@
-package dev.farhan.movieist.movies;
+package com.skynetixsystems.movies;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
